@@ -14,7 +14,7 @@ Usar o comando if e else para exibir a mensagem.
 
 int main(void) {
   int x;
-  printf("Digite a pontuação obtida: ");
+  printf("Digite a pontuação do Jogador: ");
   scanf("%d", &x);
   if(x >= 0 && x < 10){
     printf("Insuficiente");
