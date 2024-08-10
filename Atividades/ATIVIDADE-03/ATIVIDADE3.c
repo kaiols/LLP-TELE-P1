@@ -1,109 +1,79 @@
-Atividade 1: Verificar se um número é positivo, negativo ou zero usando if
+//1. O que é Manipulação de Bits?
 
+//Manipulação de bits é o processo de ajustar ou modificar valores em nível de bit, o nível mais baixo de dados digitais. Cada bit é uma unidade de informação que pode ser 0 ou 1, e a manipulação de bits envolve operações que alteram, analisam ou utilizam esses bits diretamente. Essas operações são fundamentais em várias áreas da computação, como programação de sistemas, redes e criptografia.
+
+//2. Qual a Importância da Manipulação de Bits?
+
+//A manipulação de bits é crucial para:
+
+//Eficiência: Permite a realização de operações rápidas e diretas, muitas vezes mais eficientes do que operações em nível de byte ou palavra.
+//Armazenamento e Compressão: Ajuda na compactação de dados, economizando espaço de armazenamento.
+//Comunicação e Protocolos: É essencial para implementar protocolos de comunicação e manipular dados em redes.
+//Criptografia e Segurança: Utilizada em algoritmos de criptografia para manipular dados de forma segura e eficaz.
+//Hardware: Fundamental para o controle e a programação de hardware, onde as operações são realizadas em nível de bit.
+//3. Quais são as Operações Básicas de Manipulação de Bits?
+//AND bit a bit (&): Realiza a operação lógica E entre cada par de bits correspondentes de dois números.
+//OR bit a bit (|): Realiza a operação lógica OU entre cada par de bits correspondentes de dois números.
+//XOR bit a bit (^): Realiza a operação lógica OU exclusivo entre cada par de bits correspondentes de dois números.
+//NOT bit a bit (~): Inverte todos os bits (transforma 0 em 1 e 1 em 0).
+//Deslocamento à esquerda (<<): Move os bits para a esquerda, preenchendo com 0 nos bits menos significativos.
+//Deslocamento à direita (>>): Move os bits para a direita, preenchendo com o bit mais significativo (para números positivos) ou com 1 (para números negativos).
+//4. Exemplo em Linguagem C
 #include <stdio.h>
 
-int main() {
-    int num;
-
-    printf("Digite um número: ");
-    scanf("%d", &num);
-
-    if (num > 0) {
-        printf("O número é positivo.\n");
-    } else if (num < 0) {
-        printf("O número é negativo.\n");
-    } else {
-        printf("O número é zero.\n");
+// Função para exibir os bits de um número
+void exibirBits(unsigned int num) {
+    int i;
+    for (i = sizeof(num) * 8 - 1; i >= 0; i--) {
+        printf("%d", (num >> i) & 1);
+        if (i % 8 == 0) printf(" "); // Espaçamento a cada byte
     }
-
-    return 0;
+    printf("\n");
 }
-
-
-Atividade 2: Determinar se um ano é bissexto ou não usando if else
-
-#include <stdio.h>
 
 int main() {
-    int ano;
+    unsigned int numero = 29; // Exemplo de número em decimal
+    unsigned int resultado;
 
-    printf("Digite um ano: ");
-    scanf("%d", &ano);
+    printf("Número original: %u\n", numero);
+    printf("Bits do número original: ");
+    exibirBits(numero);
 
-    if (ano % 4 == 0) {
-        if (ano % 100 == 0) {
-            if (ano % 400 == 0) {
-                printf("O ano é bissexto.\n");
-            } else {
-                printf("O ano não é bissexto.\n");
-            }
-        } else {
-            printf("O ano é bissexto.\n");
-        }
-    } else {
-        printf("O ano não é bissexto.\n");
-    }
+    // Operação AND bit a bit
+    resultado = numero & 15; // 15 em binário é 0000 1111
+    printf("Número após AND com 15: %u\n", resultado);
+    printf("Bits após AND com 15: ");
+    exibirBits(resultado);
 
-    return 0;
-}
+    // Operação OR bit a bit
+    resultado = numero | 8; // 8 em binário é 0000 1000
+    printf("Número após OR com 8: %u\n", resultado);
+    printf("Bits após OR com 8: ");
+    exibirBits(resultado);
 
+    // Operação XOR bit a bit
+    resultado = numero ^ 7; // 7 em binário é 0000 0111
+    printf("Número após XOR com 7: %u\n", resultado);
+    printf("Bits após XOR com 7: ");
+    exibirBits(resultado);
 
-Atividade 3: Exibir o dia da semana correspondente a um número usando switch
+    // Operação NOT bit a bit
+    resultado = ~numero;
+    printf("Número após NOT: %u\n", resultado);
+    printf("Bits após NOT: ");
+    exibirBits(resultado);
 
-#include <stdio.h>
+    // Deslocamento à esquerda
+    resultado = numero << 2; // Desloca os bits de número 2 posições à esquerda
+    printf("Número após deslocamento à esquerda por 2: %u\n", resultado);
+    printf("Bits após deslocamento à esquerda por 2: ");
+    exibirBits(resultado);
 
-int main() {
-    int dia;
-
-    printf("Digite um número de 1 a 7: ");
-    scanf("%d", &dia);
-
-    switch (dia) {
-        case 1:
-            printf("Domingo\n");
-            break;
-        case 2:
-            printf("Segunda-feira\n");
-            break;
-        case 3:
-            printf("Terça-feira\n");
-            break;
-        case 4:
-            printf("Quarta-feira\n");
-            break;
-        case 5:
-            printf("Quinta-feira\n");
-            break;
-        case 6:
-            printf("Sexta-feira\n");
-            break;
-        case 7:
-            printf("Sábado\n");
-            break;
-        default:
-            printf("Número inválido.\n");
-            break;
-    }
+    // Deslocamento à direita
+    resultado = numero >> 2; // Desloca os bits de número 2 posições à direita
+    printf("Número após deslocamento à direita por 2: %u\n", resultado);
+    printf("Bits após deslocamento à direita por 2: ");
+    exibirBits(resultado);
 
     return 0;
 }
-
-
-Atividade 4: Exibir o maior de dois números inteiros usando o operador ternário
-c
-
-#include <stdio.h>
-
-int main() {
-    int a, b;
-
-    printf("Digite dois números: ");
-    scanf("%d %d", &a, &b);
-
-    int maior = (a > b) ? a : b;
-
-    printf("O maior número é: %d\n", maior);
-
-    return 0;
-}
-

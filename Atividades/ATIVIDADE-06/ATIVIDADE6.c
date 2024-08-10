@@ -1,70 +1,47 @@
-1. Fazer Café:
+//Atividade 1: Array Unidimensional
+#include <stdio.h>
 
-Algoritmo FazerCafe
-  Início
-    Escreva "1. Ferva água."
-    Ferva água em uma chaleira.
-    Escreva "2. Adicione pó de café à cafeteira."
-    Adicione 1 colher de pó de café à cafeteira.
-    Escreva "3. Despeje a água quente sobre o pó."
-    Despeje a água quente sobre o pó de café.
-    Escreva "4. Espere alguns minutos."
-    Espere 3-5 minutos para o café infundir.
-    Escreva "5. Coe o café e sirva."
-    Coe o café em uma xícara e sirva.
-  Fim
+int main() {
+    int numeros[5]; // Declaração do array
+    int soma = 0; // Variável para armazenar a soma
 
-2. Fritar um Ovo:
+    // Loop para ler os números
+    for (int i = 0; i < 5; i++) {
+        printf("Digite o número %d: ", i + 1);
+        scanf("%d", &numeros[i]);
+    }
 
-Algoritmo FritarOvo
-  Início
-    Escreva "1. Quebre o ovo em uma tigela."
-    Quebre 1 ovo em uma tigela.
-    Escreva "2. Adicione sal e pimenta ao gosto."
-    Adicione sal e pimenta ao gosto.
-    Escreva "3. Aqueça uma frigideira em fogo médio."
-    Aqueça uma frigideira em fogo médio.
-    Escreva "4. Adicione óleo ou manteiga à frigideira."
-    Adicione 1 colher de óleo ou manteiga à frigideira.
-    Escreva "5. Despeje o ovo na frigideira."
-    Despeje o ovo na frigideira.
-    Escreva "6. Cozinhe até o ovo estar frito."
-    Cozinhe até o ovo estar frito.
-    Escreva "7. Sirva quente."
-    Sirva quente.
-  Fim
+    // Loop para calcular a soma
+    for (int i = 0; i < 5; i++) {
+        soma += numeros[i];
+    }
 
+    printf("A soma dos números é: %d\n", soma);
 
-3. Atravessar uma Rua:
+    return 0;
+}
+//Atividade 2: Array Multidimensional (Matriz)
+#include <stdio.h>
 
+int main() {
+    int matriz[3][3]; // Declaração da matriz
+    int soma = 0; // Variável para armazenar a soma
 
-Algoritmo AtravessarRua
-  Início
-    Escreva "1. Pare e observe os semáforos."
-    Pare e observe os semáforos.
-    Escreva "2. Verifique se há trânsito."
-    Verifique se há trânsito.
-    Escreva "3. Olhe para a esquerda, direita e novamente para a esquerda."
-    Olhe para a esquerda, direita e novamente para a esquerda.
-    Escreva "4. Atravessse a rua com cuidado."
-    Atravessse a rua com cuidado.
-    Escreva "5. Chegue ao outro lado com segurança."
-    Chegue ao outro lado com segurança.
-  Fim
+    // Loop para ler os elementos da matriz
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("Digite o elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
 
+    // Loop para calcular a soma da diagonal principal
+    for (int i = 0; i < 3; i++) {
+        soma += matriz[i][i];
+    }
 
-4. Fazer uma Vitamina de Banana:
+    printf("A soma dos elementos da diagonal principal é: %d\n", soma);
 
-Algoritmo FazerVitaminaBanana
-  Início
-    Escreva "1. Pegue 1 banana madura."
-    Pegue 1 banana madura.
-    Escreva "2. Adicione 1 xícara de leite."
-    Adicione 1 xícara de leite.
-    Escreva "3. Adicione 1 colher de açúcar (opcional)."
-    Adicione 1 colher de açúcar (opcional).
-    Escreva "4. Bata tudo no liquidificador."
-    Bata tudo no liquidificador.
-    Escreva "5. Coe a vitamina e sirva."
-    Coe a vitamina e sirva.
-  Fim
+    return 0;
+}
+//

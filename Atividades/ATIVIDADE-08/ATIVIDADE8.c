@@ -1,5 +1,4 @@
-1. Calculadora Simples
-
+//1. Calculadora Simples
 #include <stdio.h>
 
 int main() {
@@ -14,35 +13,31 @@ int main() {
     printf("Soma: %d\n", num1 + num2);
     printf("Subtração: %d\n", num1 - num2);
     printf("Multiplicação: %d\n", num1 * num2);
+
     if (num2 != 0) {
-        printf("Divisão: %f\n", (float)num1 / num2);
+        printf("Divisão: %.2f\n", (float)num1 / num2);
     } else {
         printf("Erro: divisão por zero!\n");
     }
 
     return 0;
 }
-
-
-2. Conversão de Temperatura
-
+//2. Conversão de Temperatura
 #include <stdio.h>
 
 int main() {
-    float celsius, fahrenheit;
+    float celsius;
 
     printf("Digite a temperatura em Celsius: ");
     scanf("%f", &celsius);
 
-    fahrenheit = (celsius * 9/5) + 32;
-    printf("Temperatura em Fahrenheit: %.2f\n", fahrenheit);
+    float fahrenheit = (celsius * 9/5) + 32;
+
+    printf("%.2f°C é igual a %.2f°F\n", celsius, fahrenheit);
 
     return 0;
 }
-
-
-3. Verificação de Número Par
-
+//3. Verificação de Número Par
 #include <stdio.h>
 
 int main() {
@@ -52,21 +47,18 @@ int main() {
     scanf("%d", &num);
 
     if (num % 2 == 0) {
-        printf("O número é par!\n");
+        printf("%d é par!\n", num);
     } else {
-        printf("O número é ímpar!\n");
+        printf("%d é ímpar!\n", num);
     }
 
     return 0;
 }
-
-
-4. Cálculo de Média Ponderada
-
+//4. Cálculo de Média Ponderada
 #include <stdio.h>
 
 int main() {
-    float nota1, nota2, nota3, media;
+    float nota1, nota2, nota3;
 
     printf("Digite a nota 1 (peso 2): ");
     scanf("%f", &nota1);
@@ -77,14 +69,13 @@ int main() {
     printf("Digite a nota 3 (peso 5): ");
     scanf("%f", &nota3);
 
-    media = (nota1 * 2 + nota2 * 3 + nota3 * 5) / 10;
+    float media = (nota1 * 2 + nota2 * 3 + nota3 * 5) / 10;
+
     printf("Média ponderada: %.2f\n", media);
 
     return 0;
 }
-
-5. Troca de Valores
-
+//5. Troca de Valores
 #include <stdio.h>
 
 int main() {
@@ -100,8 +91,8 @@ int main() {
     num2 = num1 - num2;
     num1 = num1 - num2;
 
-    printf("Novo valor do primeiro número: %d\n", num1);
-    printf("Novo valor do segundo número: %d\n", num2);
+    printf("Novo valor de num1: %d\n", num1);
+    printf("Novo valor de num2: %d\n", num2);
 
     return 0;
 }

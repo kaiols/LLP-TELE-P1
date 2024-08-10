@@ -1,67 +1,97 @@
-Atividade 1: Exibir números pares de 1 a 10 usando while
-
+//Atividade 1: Verificar se um número é positivo, negativo ou zero usando if
 #include <stdio.h>
 
 int main() {
-    int i = 1;
+    int num;
 
-    while (i <= 10) {
-        if (i % 2 == 0) {
-            printf("%d ", i);
-        }
-        i++;
+    printf("Digite um número: ");
+    scanf("%d", &num);
+
+    if (num > 0) {
+        printf("O número é positivo.\n");
+    } else if (num < 0) {
+        printf("O número é negativo.\n");
+    } else {
+        printf("O número é zero.\n");
     }
-
-    printf("\n");
 
     return 0;
 }
-
-
-Atividade 2: Solicitar ao usuário que adivinhe um número entre 1 e 100 usando do while
-
+//Atividade 2: Determinar se um ano é bissexto ou não usando if else
 #include <stdio.h>
 
 int main() {
-    int numeroSecreto = 42; // Número secreto para adivinhar
-    int chute;
+    int ano;
 
-    do {
-        printf("Adivinhe um número entre 1 e 100 (-1 para sair): ");
-        scanf("%d", &chute);
+    printf("Digite um ano: ");
+    scanf("%d", &ano);
 
-        if (chute == -1) {
-            printf("Você desistiu!\n");
-            break;
-        }
-
-        if (chute < numeroSecreto) {
-            printf("Muito baixo! Tente novamente.\n");
-        } else if (chute > numeroSecreto) {
-            printf("Muito alto! Tente novamente.\n");
+    if (ano % 4 == 0) {
+        if (ano % 100 == 0) {
+            if (ano % 400 == 0) {
+                printf("O ano é bissexto.\n");
+            } else {
+                printf("O ano não é bissexto.\n");
+            }
         } else {
-            printf("Parabéns! Você acertou o número secreto!\n");
-            break;
+            printf("O ano é bissexto.\n");
         }
-    } while (1); // Loop infinito até que o usuário acerte ou desista
+    } else {
+        printf("O ano não é bissexto.\n");
+    }
 
     return 0;
 }
-
-
-Atividade 3: Calcular a soma dos primeiros 10 números inteiros positivos usando for
-
-
+//Atividade 3: Exibir o dia da semana correspondente a um número usando switch
 #include <stdio.h>
 
 int main() {
-    int soma = 0;
+    int dia;
 
-    for (int i = 1; i <= 10; i++) {
-        soma += i;
+    printf("Digite um número de 1 a 7: ");
+    scanf("%d", &dia);
+
+    switch (dia) {
+        case 1:
+            printf("Domingo\n");
+            break;
+        case 2:
+            printf("Segunda-feira\n");
+            break;
+        case 3:
+            printf("Terça-feira\n");
+            break;
+        case 4:
+            printf("Quarta-feira\n");
+            break;
+        case 5:
+            printf("Quinta-feira\n");
+            break;
+        case 6:
+            printf("Sexta-feira\n");
+            break;
+        case 7:
+            printf("Sábado\n");
+            break;
+        default:
+            printf("Número inválido.\n");
+            break;
     }
 
-    printf("A soma dos primeiros 10 números inteiros positivos é: %d\n", soma);
+    return 0;
+}
+//Atividade 4: Exibir o maior de dois números inteiros usando o operador ternário
+#include <stdio.h>
+
+int main() {
+    int a, b;
+
+    printf("Digite dois números: ");
+    scanf("%d %d", &a, &b);
+
+    int maior = (a > b) ? a : b;
+
+    printf("O maior número é: %d\n", maior);
 
     return 0;
 }
